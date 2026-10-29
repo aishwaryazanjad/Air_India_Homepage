@@ -1,0 +1,245 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Air India | Fly with Pride</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="navbar">
+    <a href="#" class="logo">
+      <span class="logo-symbol">✦</span>
+      <span>AIR INDIA</span>
+    </a>
+
+    <nav>
+      <a href="#book">Book & Manage</a>
+      <a href="#offers">Offers</a>
+      <a href="#experience">Experience</a>
+      <a href="#footer">Help</a>
+    </nav>
+
+    <button class="login-btn" onclick="showLogin()">Login / Join</button>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-content">
+        <p class="eyebrow">THE WORLD IS WAITING</p>
+        <h1>Experience the<br>extraordinary.</h1>
+        <p class="hero-description">
+          Discover new destinations and experience the warmth
+          of Indian hospitality with every journey.
+        </p>
+        <a href="#book" class="primary-btn">Book your flight ↗</a>
+      </div>
+    </section>
+
+    <section class="booking-section" id="book">
+      <div class="booking-card">
+        <div class="booking-tabs">
+          <button class="tab active">✈ Book a flight</button>
+          <button class="tab" onclick="showMessage('Manage Booking')">
+            Manage booking
+          </button>
+          <button class="tab" onclick="showMessage('Flight Status')">
+            Flight status
+          </button>
+        </div>
+
+        <div class="trip-options">
+          <label><input type="radio" name="trip" value="round" checked> Round trip</label>
+          <label><input type="radio" name="trip" value="oneway"> One way</label>
+        </div>
+
+        <form id="flightForm">
+          <div class="flight-fields">
+            <div class="field">
+              <label for="from">FROM</label>
+              <select id="from" required>
+                <option value="">Select origin</option>
+                <option value="Pune">Pune (PNQ)</option>
+                <option value="Mumbai">Mumbai (BOM)</option>
+                <option value="Delhi">Delhi (DEL)</option>
+                <option value="Bengaluru">Bengaluru (BLR)</option>
+                <option value="Hyderabad">Hyderabad (HYD)</option>
+                <option value="Chennai">Chennai (MAA)</option>
+              </select>
+            </div>
+
+            <button type="button" class="swap-btn" onclick="swapCities()">
+              ⇄
+            </button>
+
+            <div class="field">
+              <label for="to">TO</label>
+              <select id="to" required>
+                <option value="">Select destination</option>
+                <option value="Mumbai">Mumbai (BOM)</option>
+                <option value="Delhi">Delhi (DEL)</option>
+                <option value="Pune">Pune (PNQ)</option>
+                <option value="Bengaluru">Bengaluru (BLR)</option>
+                <option value="Hyderabad">Hyderabad (HYD)</option>
+                <option value="London">London (LHR)</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label for="departure">DEPARTURE</label>
+              <input type="date" id="departure" required>
+            </div>
+
+            <div class="field" id="returnField">
+              <label for="returnDate">RETURN</label>
+              <input type="date" id="returnDate">
+            </div>
+
+            <div class="field">
+              <label for="passengers">PASSENGERS</label>
+              <select id="passengers">
+                <option value="1">1 Adult</option>
+                <option value="2">2 Adults</option>
+                <option value="3">3 Adults</option>
+                <option value="4">4 Adults</option>
+                <option value="5">5 Adults</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label for="classType">TRAVEL CLASS</label>
+              <select id="classType">
+                <option>Economy</option>
+                <option>Premium Economy</option>
+                <option>Business</option>
+                <option>First Class</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="booking-bottom">
+            <label class="checkbox-label">
+              <input type="checkbox" id="redeem">
+              Redeem Maharaja Points
+            </label>
+            <button type="submit" class="search-btn">Search flights →</button>
+          </div>
+          <p id="formMessage" class="form-message" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+
+    <section class="offers section" id="offers">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow red">CURATED FOR YOU</p>
+          <h2>Offers made for your journey.</h2>
+        </div>
+        <a href="#offers" class="text-link">Explore all offers ↗</a>
+      </div>
+
+      <div class="offer-grid">
+        <article class="offer-card">
+          <img
+            src="https://images.unsplash.com/photo-1519501025264-65ba15a82390?auto=format&fit=crop&w=900&q=85"
+            alt="Mumbai city skyline">
+          <div class="offer-content">
+            <span class="offer-tag">DOMESTIC</span>
+            <h3>Explore India</h3>
+            <p>Discover vibrant cities and hidden gems across India.</p>
+            <a href="#book">Plan your trip ↗</a>
+          </div>
+        </article>
+
+        <article class="offer-card">
+          <img
+            src="https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?auto=format&fit=crop&w=900&q=85"
+            alt="London landmark and city">
+          <div class="offer-content">
+            <span class="offer-tag">INTERNATIONAL</span>
+            <h3>Beyond boundaries</h3>
+            <p>Make unforgettable memories at destinations worldwide.</p>
+            <a href="#book">Discover destinations ↗</a>
+          </div>
+        </article>
+
+        <article class="offer-card">
+          <img
+            src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=900&q=85"
+            alt="Red travel-inspired sneakers">
+          <div class="offer-content">
+            <span class="offer-tag">TRAVEL SMARTER</span>
+            <h3>More value, more travel</h3>
+            <p>Explore special offers designed for your next adventure.</p>
+            <a href="#book">View offers ↗</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="experience" id="experience">
+      <div class="experience-image"></div>
+      <div class="experience-content">
+        <p class="eyebrow">THE AIR INDIA EXPERIENCE</p>
+        <h2>Rooted in India.<br>Connected to the world.</h2>
+        <p>
+          From thoughtful service to comfortable journeys, discover
+          hospitality inspired by the spirit of India.
+        </p>
+        <a href="#footer" class="primary-btn">Discover our world ↗</a>
+      </div>
+    </section>
+
+    <section class="rewards section">
+      <div>
+        <p class="eyebrow red">MAHARAJA CLUB</p>
+        <h2>Every journey brings you closer.</h2>
+        <p>Discover a world of rewards as you travel with Air India.</p>
+      </div>
+      <a href="#footer" class="outline-btn" onclick="showMessage('Maharaja Club')">
+        Explore rewards ↗
+      </a>
+    </section>
+  </main>
+
+  <footer id="footer">
+    <div class="footer-top">
+      <a href="#" class="logo footer-logo">
+        <span class="logo-symbol">✦</span>
+        <span>AIR INDIA</span>
+      </a>
+      <p>Fly with pride. Travel with purpose.</p>
+    </div>
+
+    <div class="footer-links">
+      <div>
+        <h4>BOOK & MANAGE</h4>
+        <a href="#book">Book a flight</a>
+        <a href="#book">Manage booking</a>
+        <a href="#book">Flight status</a>
+      </div>
+      <div>
+        <h4>DISCOVER</h4>
+        <a href="#offers">Offers</a>
+        <a href="#experience">Our experience</a>
+        <a href="#footer">Maharaja Club</a>
+      </div>
+      <div>
+        <h4>SUPPORT</h4>
+        <a href="#footer">Contact us</a>
+        <a href="#footer">Travel information</a>
+        <a href="#footer">FAQs</a>
+      </div>
+    </div>
+
+    <div class="copyright">
+      <p>© 2026 Air India Homepage UI Concept. For educational purposes only.</p>
+      <p>This is an independent frontend demo, not the official Air India website.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
